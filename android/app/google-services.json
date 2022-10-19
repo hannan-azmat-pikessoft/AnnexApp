@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "441445226259",
+    "project_id": "annexapp",
+    "storage_bucket": "annexapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441445226259:android:dde37802b352f5e009ace6",
+        "android_client_info": {
+          "package_name": "com.annex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441445226259-ugahshktibf9dtcv2b7pe6guune8htrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhZGPYU_8XdZCDwwTnxuvargNYo4xmJb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441445226259-ugahshktibf9dtcv2b7pe6guune8htrj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "441445226259-00hfmg9tja0inh3i3r518rue067ph40u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.annex.app",
+                "app_store_id": "1631781525"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Annex</string>
+    <string name="google_map_api_key">AIzaSyB2la24JkJheWkp_oNhqcCU9zbtD3fY3PA</string>
+    <string name="default_notification_channel_id">fcm_FirebaseNotifiction_default_channel</string>
+</resources>
