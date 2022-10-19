@@ -1,18 +1,22 @@
 import crashlytics from '@react-native-firebase/crashlytics';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React, { useState } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
-import { shallowEqual, useSelector } from 'react-redux';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React, {useState} from 'react';
+import {Image, StyleSheet, View} from 'react-native';
+import {shallowEqual, useSelector} from 'react-redux';
 import GuestUserFullScreenLoginModel from '../components/modals/loginModel/loginFullScreenModel';
 import Home from '../components/screens/appScreens/home';
 import MyBooking from '../components/screens/appScreens/myBooking';
 import Setting from '../components/screens/appScreens/setting';
-import { spacing } from '../styles/spacing';
+import {spacing} from '../styles/spacing';
 import * as Utils from '../utility';
 import colors from '../utility/colors';
-import { navigate } from '../utility/commonFunctions';
-import { KEY_BOTTOM_TAB_NAVIGATOR, SCREEN_HOME, SCREEN_MANAGE_ADDRESS } from '../utility/constants';
-import { Images } from '../utility/imagePaths';
+import {navigate} from '../utility/commonFunctions';
+import {
+  KEY_BOTTOM_TAB_NAVIGATOR,
+  SCREEN_HOME,
+  SCREEN_MANAGE_ADDRESS,
+} from '../utility/constants';
+import {Images} from '../utility/imagePaths';
 
 const Tab = createBottomTabNavigator();
 const activeTabColor = colors.theme;
@@ -43,31 +47,31 @@ const tabData = [
   },
 ];
 
-
-
-function BottomTabs({ }) {
-
+function BottomTabs({}) {
   const [showLoginModel, setShowLoginModel] = useState(false);
 
-  const { isGuestUser } = useSelector(state => ({ isGuestUser: state.authReducer.isGuestUser }), shallowEqual);
+  const {isGuestUser} = useSelector(
+    state => ({isGuestUser: state.authReducer.isGuestUser}),
+    shallowEqual,
+  );
 
   function onTabPress(e, navigation, rte) {
     crashlytics().log(`User navigate to ${rte.name} tab`);
-    if (isGuestUser && rte.name != Utils.Constants.SCREEN_HOME) setShowLoginModel(true)
-
+    if (isGuestUser && rte.name != Utils.Constants.SCREEN_HOME)
+      setShowLoginModel(true);
   }
 
   function onCloseLoginModel() {
-    if (isGuestUser) navigate(KEY_BOTTOM_TAB_NAVIGATOR, { screen: SCREEN_HOME })
-    setShowLoginModel(false)
+    if (isGuestUser) navigate(KEY_BOTTOM_TAB_NAVIGATOR, {screen: SCREEN_HOME});
+    setShowLoginModel(false);
   }
 
   function onLoginSignupSuccess() {
-    setShowLoginModel(false)
+    setShowLoginModel(false);
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
@@ -78,7 +82,7 @@ function BottomTabs({ }) {
             paddingBottom: 0,
             height: spacing.HEIGHT_56,
           },
-          tabBarLabelStyle: { alignSelf: 'center' },
+          tabBarLabelStyle: {alignSelf: 'center'},
           tabBarAllowFontScaling: true,
           // tabBarItemStyle: { alignSelf: 'center', justifyContent: 'center' },
           headerShown: false,
@@ -89,14 +93,14 @@ function BottomTabs({ }) {
               key={`bottomTabMain_${index.toString()}`}
               name={item.name}
               component={item.component}
-              listeners={({ navigation, route }) => ({
+              listeners={({navigation, route}) => ({
                 tabPress: e => {
                   onTabPress(e, navigation, route);
                 },
               })}
               options={{
                 tabBarLabel: item.label,
-                tabBarIcon: ({ focused }) => {
+                tabBarIcon: ({focused}) => {
                   return (
                     <Image
                       source={focused ? item.active_icon : item.inactive_icon}
@@ -111,7 +115,7 @@ function BottomTabs({ }) {
         })}
       </Tab.Navigator>
       <GuestUserFullScreenLoginModel
-        key={"guestFullScreenModel"}
+        key={'guestFullScreenModel'}
         onClose={onCloseLoginModel}
         visible={showLoginModel}
         onLoginSignupSuccess={onLoginSignupSuccess}
