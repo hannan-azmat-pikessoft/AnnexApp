@@ -6,7 +6,7 @@ import flashMessage from '../../components/common/CustomFlashAlert';
 import {clearUserData} from '../../utility/commonFunctions';
 import {KEY_USER_TOKEN} from '../../utility/constants';
 import {retrieveItem} from '../../utility/customAsyncStorage';
-import {requestTrackingPermission} from 'react-native-tracking-transparency';
+// import {requestTrackingPermission} from 'react-native-tracking-transparency';
 
 const ourRequest = axios.CancelToken.source();
 export default async method => {
@@ -33,13 +33,13 @@ export async function callApi(method, resolve, reject) {
     Os: Platform.OS,
   };
 
-  const trackingStatus = await requestTrackingPermission();
-  if (trackingStatus === 'authorized' || trackingStatus === 'unavailable') {
-    headers.DeviceId = await DeviceInfo.getUniqueId();
-    headers.IpAddress = await DeviceInfo.getIpAddress();
-    headers.MacAddress = await DeviceInfo.getMacAddress();
-    headers.DeviceName = await DeviceInfo.getDeviceName();
-  }
+  // const trackingStatus = await requestTrackingPermission();
+  // if (trackingStatus === 'authorized' || trackingStatus === 'unavailable') {
+  //   headers.DeviceId = await DeviceInfo.getUniqueId();
+  //   headers.IpAddress = await DeviceInfo.getIpAddress();
+  //   headers.MacAddress = await DeviceInfo.getMacAddress();
+  //   headers.DeviceName = await DeviceInfo.getDeviceName();
+  // }
 
   // console.log(headers);
 
