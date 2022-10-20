@@ -35,14 +35,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires access to the camera.</string>
+	<!-- <key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to the camera.</string> -->
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires access to the location.</string>
+	<string>$(PRODUCT_NAME) app provide the service to select address through the map. If you are willing, grant this permission.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) require access to the microphone.</string>
+	<string>$(PRODUCT_NAME) app provide the service to record voice message in description. If you are willing, grant this permission.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) requires photo access.</string>
+	<string>$(PRODUCT_NAME) app provide the service to add photos in description. If you are willing, grant this permission.</string>
 	<!-- <key>NSUserTrackingUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like permission to track you across apps.</string> -->
 	<key>UIAppFonts</key>
