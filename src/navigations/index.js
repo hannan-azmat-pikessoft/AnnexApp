@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/stack';
 import React from 'react';
 import {View} from 'react-native';
-// import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 import {shallowEqual, useSelector} from 'react-redux';
 import {navigationRef} from '../NavigationService';
 import * as Utils from '../utility';
@@ -21,7 +21,7 @@ function AppStack({}) {
     }),
     shallowEqual,
   );
-  // SplashScreen.hide();
+  SplashScreen.hide();
   return (
     <View style={{flex: 1}}>
       {isUserLoggedIn !== undefined && (
