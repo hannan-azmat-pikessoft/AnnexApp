@@ -133,14 +133,14 @@ const LoginModule = ({from, onSuccess}) => {
       });
   }
 
-  function onPressSignup(payload) {
+  async function onPressSignup(payload) {
     setLoading(true);
     const apiData = {
       type: API_USERS,
       apiType: 'PATCH',
       payload: payload,
     };
-    retrieveItem(KEY_USER_DATA).then(res => {
+    await retrieveItem(KEY_USER_DATA).then(res => {
       apiData.type = API_USERS + res.id + '/';
       apiCall(apiData)
         .then(res => {
